@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>TestSession</groupId>
+    <artifactId>TestSession</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>Deployment Maven File</name>
+    <url>http://maven.apache.org</url>
+    <build>
+        <finalName>TestSession</finalName>
+        <plugins>
+            <plugin>
+                <!-- This is the configuration for the weblogic-maven-plugin -->
+                <groupId>com.oracle.weblogic</groupId>
+                <artifactId>wls-maven-plugin</artifactId>
+                <version>12.1.3.0</version>
+                <configuration>
+                    <middlewareHome>/opt/Oracle/Middleware</middlewareHome>
+                     <adminurl>http://localhost:9001</adminurl>
+                     <user>weblogic</user>
+                     <password>Welcome2Cloud#</password>
+                     <source>target/TestSession-1.0-SNAPSHOT.war</source>
+                     <targets>testJCSC_cluster</targets>
+                     <verbose>true</verbose>
+                     <remote>true</remote>
+                     <upload>true</upload>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>wls-deploy</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
