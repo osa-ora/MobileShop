@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mobile Shop</title>
+<title>Mobile Shop 1.0</title>
 </head>
 <body>
 <br>
 <center>
-<b>Select You Mobile</b><br>
+<b>Kindly Select You Mobile</b><br>
 <img src="images/logo.png"><br>
 <hr>
 <br><a id="cart" href="cart.jsp"><img src="images/cart.jpg"> (<% if(request.getSession().getAttribute("CART")==null) out.print("0"); else {
