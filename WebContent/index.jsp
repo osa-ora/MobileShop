@@ -11,8 +11,9 @@
 <body>
 <br>
 <center>
-<b>Kindly Select You Mobile</b><br>
 <img src="images/logo.png"><br>
+<hr>
+<b>Kindly Select You Mobile</b><br>
 <hr>
 <br><a id="cart" href="cart.jsp"><img src="images/cart.jpg"> (<% if(request.getSession().getAttribute("CART")==null) out.print("0"); else {
 					List devices=(List<MobileDevice>) request.getSession().getAttribute("CART");
