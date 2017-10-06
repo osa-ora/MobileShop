@@ -64,6 +64,8 @@
 					<%}
 			} %>
 </table>
+<hr>
+Copyright 2017 by AnyCompany.com
 </center>
 </body>
 </html>
