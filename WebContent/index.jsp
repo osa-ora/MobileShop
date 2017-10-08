@@ -11,7 +11,6 @@
 <body>
 <br>
 <center>
-<img src="images/logo.png"><br>
 <hr>
 <b>Kindly Select You Mobile</b><br>
 <hr>
