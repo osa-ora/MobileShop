@@ -11,7 +11,10 @@
 <body>
 <br>
 <center>
+<hr>
 <img src="images/logo.png"><br>
+<hr>
+Welcome to Mobile Shop <br>
 <hr>
 <b>Kindly Select You Mobile</b><br>
 <hr>
