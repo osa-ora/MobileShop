@@ -35,6 +35,8 @@
 <td><a id="3" href="AddToCart?id=3"><img src="images/add.gif"></a></td><td><a id="4" href="AddToCart?id=4"><img src="images/add.gif"></a></td>
 </tr>
 </table>
+<hr>
+Copyright 2017 by AnyCompany.com
 </center>
 </body>
 </html>
