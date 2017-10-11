@@ -12,7 +12,7 @@
 <br>
 <center>
 <hr>
-<img src="images/oracle-logo.png"><br>
+<img src="images/logo.png"><br>
 <hr>
 Welcome to Mobile Shop <br>
 <hr>
