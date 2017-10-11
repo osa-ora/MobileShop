@@ -11,7 +11,8 @@
 <body>
 <br>
 <center>
-This is the old icon label
+Hello
+<img src="images/logo.png"><br>
 <hr>
 <b>Kindly Select You Mobile</b><br>
 <hr>
