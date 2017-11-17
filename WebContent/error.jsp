@@ -17,7 +17,13 @@
 <form method="post" action="/Checkout">
 <table>
 		<tr>
-			<td>Congratulation, Order Successfully Submitted :)</td>
+                    <td><b>Bad Luck, Error during order submission!</b></td>
+                </tr>
+                <tr>
+                        <td><% Exception ex=(Exception)session.getAttribute("ERROR"); %>
+                            <br>
+                            <% out.print(ex.getMessage()); %>
+                        </td>
 		</tr>
 		<% session.invalidate(); %>
 </table>

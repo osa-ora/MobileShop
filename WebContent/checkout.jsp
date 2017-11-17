@@ -27,7 +27,7 @@ function IsEmpty(){
 <hr>
 <center>
 <br><a id="back" href="index.jsp"><img width=200 src="images/continue.png"></a>
-<form method="get" action="confirm.jsp">
+<form method="get" action="SaveServlet">
 <table>
 <%  double totalPrice=0;
 	if(request.getSession().getAttribute("CART")==null) out.print("Empty!"); else {
@@ -49,6 +49,10 @@ function IsEmpty(){
 		<tr>
 			<td><font color="red">*</font>Address</td>
 			<td><input id="address" name="address"></td>
+		</tr>
+		<tr>
+			<td><font color="red">*</font>DB</td>
+			<td><input type="checkbox" name="save" value="1"> Skip DB Save<br></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input id="insert" onclick="return IsEmpty();" type="submit" value="Buy"/></td>

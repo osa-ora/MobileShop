@@ -1,0 +1,104 @@
+package test.java.com.oracle.test;
+
+import org.junit.*;
+
+import net.sourceforge.jwebunit.util.TestContext;
+
+import static net.sourceforge.jwebunit.junit.JWebUnit.*;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class ShopTestCase {
+
+	public static final String BASE_URL="base_url";
+	TestContext testContext;
+	
+    @Before
+    public void prepare() {
+    	
+    	testContext = new TestContext();
+    	ensureProxyFromEnv(testContext);
+    	testContext.setBaseUrl(System.getProperty(BASE_URL));
+    	System.out.println("base_url="+System.getProperty(BASE_URL));
+        //"http://localhost:7001/TestSession");
+    	setTestContext(testContext);
+    }
+
+	private TestContext ensureProxyFromEnv(TestContext testContext) {
+    	if (testContext == null) testContext = new TestContext();
+    	
+    	String proxy = System.getenv("HTTP_PROXY");
+        // we should get http://ch3-opc-proxy.usdc2.oraclecloud.com:80 for Chicago DC
+    	URL proxyURL = null;
+		try {
+			proxyURL = new URL(proxy);
+		} catch (MalformedURLException mue) {
+			System.out.println(mue.getMessage());
+		}
+    	
+    	if (proxyURL != null){
+        	testContext.setProxyAuthorization(
+        			/*user*/ null, /*passwd*/ null,
+        			proxyURL.getHost(), proxyURL.getPort());
+    	}
+    	return testContext;
+    }
+    @Test
+    public void testAddCart() {
+        beginAt("/index.jsp");
+        clickLink("1");
+        clickLink("2");
+        clickLink("3");
+        clickLink("cart");
+        assertTitleEquals("Mobile Shop - Shopping Cart");
+        assertTextNotPresent("Sony");
+        assertTextPresent("Samsung");
+        clickLink("back");
+        assertTitleEquals("Mobile Shop");
+        clickLink("cart");
+        assertTitleEquals("Mobile Shop - Shopping Cart");
+    }
+    @Test
+    public void testCheckOut() {
+        beginAt("/index.jsp");
+        clickLink("1");
+        clickLink("2");
+        clickLink("3");
+        clickLink("cart");
+        assertTitleEquals("Mobile Shop - Shopping Cart");
+        assertTextNotPresent("Sony");
+        assertTextPresent("Samsung");
+        clickLink("back");
+        assertTitleEquals("Mobile Shop");
+        clickLink("cart");
+        assertTitleEquals("Mobile Shop - Shopping Cart");
+        clickLink("checkout");
+        setTextField("name", "Osama Oransa");
+        setTextField("address", "Cairo, Egypt");
+        submit();
+        assertTitleEquals("Mobile Shop - Confirmation");
+    }
+    @Test
+    public void testConfirmation() {
+        beginAt("/index.jsp");
+        clickLink("1");
+        clickLink("2");
+        clickLink("3");
+        clickLink("cart");
+        assertTitleEquals("Mobile Shop - Shopping Cart");
+        assertTextNotPresent("Sony");
+        assertTextPresent("Samsung");
+        clickLink("back");
+        assertTitleEquals("Mobile Shop");
+        clickLink("cart");
+        assertTitleEquals("Mobile Shop - Shopping Cart");
+        clickLink("checkout");
+        setTextField("name", "Osama Oransa");
+        setTextField("address", "Cairo, Egypt");
+        submit();
+        assertTitleEquals("Mobile Shop - Confirmation");
+        assertTextPresent("Osama Oransa");
+        assertLinkPresent("back");
+    }
+}
