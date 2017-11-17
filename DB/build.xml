@@ -3,7 +3,7 @@
     DB script execution ant file ...
   </description>
 	<path id="antclasspath">
-		<fileset dir=".">
+		<fileset dir="DB">
 			<include name="ojdbc7.jar" />
 		</fileset>
 	</path>
