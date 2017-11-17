@@ -10,7 +10,7 @@
 	<target name="clean">
 			<sql driver="oracle.jdbc.OracleDriver" userid="${sys_user} as sysdba" password="${sys_password}" url="jdbc:oracle:thin:@//${connection_string}" src="./clean.sql" classpathref="antclasspath" />
 	</target>
-	<target name="deploy" depends="clean">
+	<target name="deploy">
 		<sql driver="oracle.jdbc.OracleDriver"  userid="${schema_user}" password="${schema_password}" url="jdbc:oracle:thin:@//${connection_string}" src="./install.sql" classpathref="antclasspath" />
 	</target>
 	<target name="test" depends="deploy">
