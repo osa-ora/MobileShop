@@ -68,6 +68,9 @@ public class SaveServlet extends HttpServlet {
                 Connection conn = ds.getConnection();
                 Statement statement = conn.createStatement();
                 int results = statement.executeUpdate("INSERT INTO ORDER_DATA " + "VALUES ('" + name + "','" + address + "'," + totalPrice + ",sysdate)");
+                //close DB connection
+                conn.commit();
+                conn.close();
                 if (results > 0) {
                     request.getRequestDispatcher("confirm.jsp").forward(request, response);
                 } else {
