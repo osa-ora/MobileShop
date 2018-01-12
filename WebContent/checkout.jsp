@@ -52,7 +52,7 @@ function IsEmpty(){
 		</tr>
 		<tr>
 			<td><font color="red">*</font>DB</td>
-			<td><input type="checkbox" name="save" value="1"> Skip DB Save<br></td>
+			<td><input type="checkbox" name="save" value="1" checked> Skip DB Save<br></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input id="insert" onclick="return IsEmpty();" type="submit" value="Buy"/></td>
